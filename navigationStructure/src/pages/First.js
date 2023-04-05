@@ -1,12 +1,31 @@
-import { View, Text } from 'react-native'
+import { View, Text,StyleSheet, Button } from 'react-native'
 import React from 'react'
 
-const First = () => {
+const First = (props) => {
+
+  changePage = () => props.navigation.navigate("SecondScreen",{
+    username: "alperenengineer"
+  })
+  console.log(props)
   return (
-    <View>
-      <Text>Merhaba First page</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Merhaba First page</Text>
+      <Button title="change" onPress={changePage} />
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+  },
+  text:{
+    color:'black',
+    fontSize:32,
+    fontWeight:'bold',
+  }
+})
 
 export default First
